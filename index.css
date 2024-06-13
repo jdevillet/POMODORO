@@ -8,7 +8,6 @@
   color: rgb(241, 241, 241);
   margin: 0;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 button {
@@ -116,6 +115,7 @@ body #barLoading {
   background-color: rgb(255, 215, 0);
 }
 body .pomo_Container {
+  box-shadow: rgb(22, 22, 22) 3px 3px 2px;
   display: flex;
   flex-direction: column;
   height: 20rem;
@@ -152,6 +152,77 @@ body #currentTask {
   border-radius: 2rem;
   animation: pulse 1000ms infinite;
 }
+body .task_manager {
+  margin: 1rem 0;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(71, 71, 71);
+  border-radius: 0.5rem;
+  box-shadow: rgb(22, 22, 22) 3px 3px 2px;
+}
+body .task_manager .task_nav {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  position: relative;
+}
+body .task_manager .task_nav::after {
+  position: absolute;
+  content: "";
+  background: rgb(255, 215, 0);
+  top: 1.3rem;
+  width: 70%;
+  height: 0.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body .task_manager .tasks_list {
+  width: 95%;
+}
+body .task_manager .tasks_list .task {
+  background: rgb(46, 46, 46);
+  margin: 0.3rem 0;
+  padding: 1rem;
+  display: flex;
+  border-radius: 0.2rem;
+  align-items: center;
+}
+body .task_manager .tasks_list .task_Name {
+  margin: 0 auto;
+  padding: 0.5rem;
+  text-wrap: pretty;
+}
+body .task_manager .tasks_list .How_Many_Pomo {
+  margin: auto;
+}
+body .task_manager .tasks_list .options {
+  margin-left: 0.5rem;
+}
+body .task_manager .add_task {
+  justify-content: center;
+  cursor: pointer;
+}
+body .task_manager .pomos_sched {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.4rem 0;
+}
+body .task_manager .pomos_sched .pomos {
+  display: flex;
+  gap: 0.2rem;
+}
+body .task_manager .pomos_sched .finish_at {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
