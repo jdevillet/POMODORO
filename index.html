@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <nav>
+    <h2>PomoDoros Maker</h2>
+    <ul>
+      <li>Report</li>
+      <li>Settings</li>
+      <li>Sign In</li>
+      <li><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></li>
+    </ul>
+  </nav>
+  <!--  -->
+  <!-- barre de suuivi du temps restant -->
+<div id="bar">
+  <div id="barLoading"></div>
+</div>
+  <!--  -->
+
+  <div class="pomo_Container">
+
+    <div class="time_selector">
+      <span class="time_selector_btn"  id="25">Pomodoro</span>
+      <span class="time_selector_btn" id="5">Short Break</span>
+      <span class="time_selector_btn" id="15">Long Break</span>
+      
+    </div>
+
+    <span class="timer">
+      <span>00:00</span>
+    </span>
+
+    <div class="pause">
+      <button id="pause">Pause</button>
+      <button id="skip"><i class="fa-solid fa-forward-step"></i></button>
+    </div>
+
+  </div>
+
+  <span id="currentTask">Figma</span>
+
+  <div class="task_manager">
+
+    <div class="task_nav">
+      <p>Tasks</p>
+      <button><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
+    </div>
+
+    <div class="tasks_list">
+      <!--  -->
+      <div class="task">
+        <input type="checkbox" name="isDone" id="checkTask">
+        <span class="task_Name">Figmater</span>
+        <span class="How_Many_Pomo"></span>
+        <button><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+      <!--  -->
+      <div class="add_task">
+        <p>Add Task</p>
+        </div>
+    </div>
+
+<div class="pomos_sched">
+  <div class="pomos">
+    <p>Pomos:</p>
+    <p>5/5</p>
+  </div>
+  <div class="finish_at">
+    <p>Finish At:</p>
+    <p>17:46 (0h)</p>
+  </div>
+</div>
+  </div>
+
+
+
+  <script src="/index.js"></script>
+</body>
+
+</html>

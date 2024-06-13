@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after,
+*:visited {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  color: rgb(241, 241, 241);
+  margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: rgb(47, 47, 47);
+}
+
+body .page-max-width {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: Verdana;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+a {
+  text-wrap: pretty;
+  font-family: Verdana;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  background: rgb(48, 48, 48);
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body nav {
+  max-width: 50rem;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+body nav h2 {
+  font-size: 1.2rem;
+  margin-right: auto;
+}
+body nav ul {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+body nav ul li {
+  cursor: pointer;
+  transition: 250ms linear;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+}
+body nav ul li:hover {
+  mix-blend-mode: difference;
+  background: rgb(255, 215, 0);
+}
+body #bar {
+  margin-top: 0.3rem;
+  width: 100%;
+  background-color: rgb(128, 98, 0);
+}
+body #barLoading {
+  width: 1%;
+  height: 0.2rem;
+  background-color: rgb(255, 215, 0);
+}
+body .pomo_Container {
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  width: 60%;
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: space-around;
+  background: rgb(71, 71, 71);
+  border-radius: 0.5rem;
+}
+body .pomo_Container .time_selector .time_selector_btn {
+  padding: 0 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+body .pomo_Container .timer {
+  font-size: 5rem;
+}
+body .pomo_Container .pause #pause {
+  background: rgb(196, 167, 3);
+  border-radius: 2rem;
+  padding: 0.3rem 3rem;
+  font-size: 2rem;
+  color: rgb(46, 46, 46);
+  margin-right: 0.5rem;
+}
+body .pomo_Container .pause #skip {
+  font-size: 2rem;
+  width: 1.2rem;
+}
+body #currentTask {
+  background: rgb(71, 71, 71);
+  padding: 0 1rem;
+  border-radius: 2rem;
+  animation: pulse 1000ms infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.selected {
+  background: rgb(255, 215, 0);
+  color: rgb(46, 46, 46);
+}/*# sourceMappingURL=index.css.map */
