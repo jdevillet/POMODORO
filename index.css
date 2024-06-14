@@ -126,23 +126,60 @@ body .pomo_Container {
   background: rgb(71, 71, 71);
   border-radius: 0.5rem;
 }
+body .pomo_Container .time_selector label {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 body .pomo_Container .time_selector .time_selector_btn {
-  padding: 0 1rem;
-  font-weight: 600;
+  display: none;
+}
+body .pomo_Container .time_selector label {
   cursor: pointer;
 }
-body .pomo_Container .timer {
+body .pomo_Container .time_selector input[type=radio]:checked + label {
+  background: rgb(255, 215, 0);
+  color: rgb(46, 46, 46);
+  border-radius: 1.2rem;
+  padding: 0.2rem;
+  font-weight: bold;
+}
+body .pomo_Container #countdownDisplay {
   font-size: 5rem;
 }
-body .pomo_Container .pause #pause {
-  background: rgb(196, 167, 3);
-  border-radius: 2rem;
-  padding: 0.3rem 3rem;
-  font-size: 2rem;
-  color: rgb(46, 46, 46);
-  margin-right: 0.5rem;
+body .pomo_Container .playButtons {
+  display: flex;
 }
-body .pomo_Container .pause #skip {
+body .pomo_Container .playButtons .container {
+  position: relative;
+  cursor: pointer;
+  margin-right: 4rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+body .pomo_Container .playButtons .container #checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
+  width: 6rem;
+  background: rgb(255, 215, 0);
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  color: rgb(46, 46, 46);
+}
+body .pomo_Container .playButtons .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+body .pomo_Container .playButtons #skip {
   font-size: 2rem;
   width: 1.2rem;
 }

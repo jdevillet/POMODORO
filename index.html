@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="index.css">
 </head>
 
@@ -22,28 +24,35 @@
   </nav>
   <!--  -->
   <!-- barre de suuivi du temps restant -->
-<div id="bar">
-  <div id="barLoading"></div>
-</div>
+  <div id="bar">
+    <div id="barLoading"></div>
+  </div>
   <!--  -->
 
   <div class="pomo_Container">
 
     <div class="time_selector">
-      <span class="time_selector_btn"  id="25">Pomodoro</span>
-      <span class="time_selector_btn" id="5">Short Break</span>
-      <span class="time_selector_btn" id="15">Long Break</span>
-      
+      <input id="pomodoro" type="radio" checked name="timerMode" value="pomodoro" class="time_selector_btn">
+      <label for="pomodoro">Pomodoro</label>
+
+      <input type="radio" id="sB" name="timerMode" value="shortBreak" class="time_selector_btn">
+      <label for="sB">Short Break</label>
+
+      <input type="radio" id="lB" name="timerMode" value="longBreak" class="time_selector_btn">
+      <label for="lB">Long Break</label>
+
     </div>
 
-    <span class="timer">
-      <span>00:00</span>
-    </span>
+    <div id="countdownDisplay"></div>
 
-    <div class="pause">
-      <button id="pause">Pause</button>
+    <form class="playButtons">
+
+      <label class="container">
+        <input id="start" type="checkbox">
+        <span id="checkmark">Start</span>
+      </label>
       <button id="skip"><i class="fa-solid fa-forward-step"></i></button>
-    </div>
+    </form>
 
   </div>
 
@@ -60,26 +69,27 @@
       <!--  -->
       <div class="task">
         <input type="checkbox" id="checkTask" checked>
-        <span class="task_Name">Figmater Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique numquam reiciendis odio eius quisquam incidunt facere tempora dolores quod dolore?</span>
+        <span class="task_Name">Figmater Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique numquam
+          reiciendis odio eius quisquam incidunt facere tempora dolores quod dolore?</span>
         <span class="How_Many_Pomo">2/2</span>
         <button class="options"><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
       </div>
       <!--  -->
       <div class="add_task task">
         <p>Add Task</p>
-        </div>
+      </div>
     </div>
 
-<div class="pomos_sched">
-  <div class="pomos">
-    <p>Pomos:</p>
-    <p class="bold">5/5</p>
-  </div>
-  <div class="finish_at">
-    <p>Finish At:</p>
-    <p class="bold">17:46 (0h)</p>
-  </div>
-</div>
+    <div class="pomos_sched">
+      <div class="pomos">
+        <p>Pomos:</p>
+        <p class="bold">5/5</p>
+      </div>
+      <div class="finish_at">
+        <p>Finish At:</p>
+        <p class="bold">17:46 (0h)</p>
+      </div>
+    </div>
   </div>
 
 

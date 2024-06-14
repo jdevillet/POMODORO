@@ -116,9 +116,9 @@ body {
     width: 1%;
     height: 0.2rem;
     background-color: rgb(255, 215, 0);
-    }
-    
-    .pomo_Container {
+  }
+
+  .pomo_Container {
     box-shadow: rgb(22, 22, 22) 3px 3px 2px;
     display: flex;
     flex-direction: column;
@@ -131,25 +131,68 @@ body {
     border-radius: 0.5rem;
 
     .time_selector {
+      label {
+        margin: 0 1rem;
+        font-size: 1.2rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
       .time_selector_btn {
-        padding: 0 1rem;
-        font-weight: 600;
+        display: none;
+      }
+      label {
         cursor: pointer;
       }
+      input[type="radio"]:checked + label {
+        background: rgb(255, 215, 0);
+        color: rgb(46, 46, 46);
+        border-radius: 1.2rem;
+        padding: 0.2rem;
+        font-weight: bold;
+      }
     }
-    .timer {
+
+    #countdownDisplay {
       font-size: 5rem;
     }
 
-    .pause {
-      #pause {
-        background: rgb(196, 167, 3);
-        border-radius: 2rem;
-        padding: 0.3rem 3rem;
-        font-size: 2rem;
-        color: rgb(46, 46, 46);
-        margin-right: 0.5rem;
+    .playButtons {
+      display: flex;
+
+      .container {
+        position: relative;
+        cursor: pointer;
+        margin-right: 4rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        #checkmark {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 2rem;
+          width: 6rem;
+          background: rgb(255, 215, 0);
+          text-align: center;
+          font-size: 1.4rem;
+          font-weight: 700;
+          border-radius: 2rem;
+          color: rgb(46, 46, 46);
+        }
+
+        & input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
       }
+
+
       #skip {
         font-size: 2rem;
         width: 1.2rem;
@@ -163,7 +206,6 @@ body {
     border-radius: 2rem;
     animation: pulse 1000ms infinite;
   }
-
 
   .task_manager {
     margin: 1rem 0;
@@ -222,20 +264,20 @@ body {
       width: 100%;
       display: flex;
       justify-content: space-evenly;
-      margin: .4rem 0;
+      margin: 0.4rem 0;
 
-      .pomos{
+      .pomos {
         display: flex;
-      gap: .2rem;
+        gap: 0.2rem;
       }
-      .finish_at{
+      .finish_at {
         display: flex;
-        gap: .2rem;
+        gap: 0.2rem;
       }
     }
   }
 }
-.bold{
+.bold {
   font-weight: 600;
 }
 @keyframes pulse {
