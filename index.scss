@@ -130,20 +130,12 @@ body {
     background: rgb(71, 71, 71);
     border-radius: 0.5rem;
 
-    .time_selector {
-      label {
-        margin: 0 1rem;
-        font-size: 1.2rem;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
+    .time_selectors {
       .time_selector_btn {
-        display: none;
+        margin: 0 0.5rem;
+        font-size: 1.4rem;
       }
-      label {
-        cursor: pointer;
-      }
-      input[type="radio"]:checked + label {
+      .active {
         background: rgb(255, 215, 0);
         color: rgb(46, 46, 46);
         border-radius: 1.2rem;
@@ -192,91 +184,133 @@ body {
         }
       }
 
-
       #skip {
         font-size: 2rem;
         width: 1.2rem;
       }
     }
   }
+  .task-section {
+    #currentTask {
+      background: rgb(71, 71, 71);
+      padding: 0 1rem;
+      border-radius: 2rem;
+      animation: pulse 1000ms infinite;
+    }
 
-  #currentTask {
-    background: rgb(71, 71, 71);
-    padding: 0 1rem;
-    border-radius: 2rem;
-    animation: pulse 1000ms infinite;
-  }
-
-  .task_manager {
-    margin: 1rem 0;
-    width: 30rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgb(71, 71, 71);
-    border-radius: 0.5rem;
-    box-shadow: rgb(22, 22, 22) 3px 3px 2px;
-
-    .task_nav {
+    .new_task_maker {
       display: flex;
-      width: 90%;
-      justify-content: space-between;
-      position: relative;
-      &::after {
+      flex-direction: column;
+      position: absolute;
+      z-index: 999;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      #HowLong::after {
+        content: "Pomos";
         position: absolute;
-        content: "";
-        background: rgb(255, 215, 0);
-        top: 1.3rem;
-        width: 70%;
-        height: 0.1rem;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 0;
+        left: 0;
       }
     }
-    .tasks_list {
-      width: 95%;
 
-      .task {
-        background: rgb(46, 46, 46);
-        margin: 0.3rem 0;
-        padding: 1rem;
-        display: flex;
-        border-radius: 0.2rem;
-        align-items: center;
-      }
-      .task_Name {
-        margin: 0 auto;
-        padding: 0.5rem;
-        text-wrap: pretty;
-      }
-      .How_Many_Pomo {
-        margin: auto;
-      }
-      .options {
-        margin-left: 0.5rem;
-      }
-    }
-    .add_task {
-      justify-content: center;
-      cursor: pointer;
-    }
-    .pomos_sched {
-      width: 100%;
+    .task_manager {
+      margin: 1rem 0;
+      width: 30rem;
       display: flex;
-      justify-content: space-evenly;
-      margin: 0.4rem 0;
+      flex-direction: column;
+      align-items: center;
+      background: rgb(71, 71, 71);
+      border-radius: 0.5rem;
+      box-shadow: rgb(22, 22, 22) 3px 3px 2px;
 
-      .pomos {
+      .task_nav {
         display: flex;
-        gap: 0.2rem;
+        width: 90%;
+        justify-content: space-between;
+        position: relative;
+        &::after {
+          position: absolute;
+          content: "";
+          background: rgb(255, 215, 0);
+          top: 1.3rem;
+          width: 70%;
+          height: 0.1rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
-      .finish_at {
+      .tasks_list {
+        width: 95%;
+
+        .task {
+          background: rgb(46, 46, 46);
+          margin: 0.3rem 0;
+          padding: 1rem;
+          display: flex;
+          border-radius: 0.2rem;
+          align-items: center;
+        }
+        .task_Name {
+          margin: 0 auto;
+          padding: 0.5rem;
+          text-wrap: pretty;
+        }
+        .How_Many_Pomo {
+          margin: auto;
+        }
+        .options {
+          margin-left: 0.5rem;
+        }
+      }
+      .add_task {
+        justify-content: center;
+        cursor: pointer;
+      }
+      .pomos_sched {
+        width: 100%;
         display: flex;
-        gap: 0.2rem;
+        justify-content: space-evenly;
+        margin: 0.4rem 0;
+
+        .pomos {
+          display: flex;
+          gap: 0.2rem;
+        }
+        .finish_at {
+          display: flex;
+          gap: 0.2rem;
+        }
       }
     }
   }
 }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35rem;
+  height: 20rem;
+  .new_task_maker {
+    border: 1px solid green;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+    .task-name{
+
+    }
+
+  }
+}
+
 .bold {
   font-weight: 600;
 }
@@ -291,7 +325,7 @@ body {
     transform: scale(1);
   }
 }
-.selected {
+.active {
   background: rgb(255, 215, 0);
   color: rgb(46, 46, 46);
 }
