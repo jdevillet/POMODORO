@@ -1,38 +1,54 @@
 let totalSeconds;
 let interval;
 let isPaused = true;
-const shortBreak = 300;
-const longBreak = 900;
-const pomodoroTime = 1500;
-const timeSelector = document.querySelector(".time_selector");
-const start = document.getElementById("start");
-const skip = document.getElementById("skip");
-let mode = "pomodoroSet";
-let pomodoroCount = 0;
+let shortBreak = 300;
+let longBreak = 900;
+let pomodoroTime = 1500;
+let focusButton = document.getElementById("focus");
+let shortBreakButton = document.getElementById("shortbreak");
+let longBreakButton = document.getElementById("longbreak");
+let timeSelector = document.querySelector(".time_selectors");
+let buttons = document.querySelectorAll(".time_selector_btn");
+let start = document.getElementById("start");
+let skip = document.getElementById("skip");
+let pomodoroCount = 1;
 
 function startTimer(mode) {
   switch (mode) {
     case "pomodoroSet":
-      totalSeconds = pomodoroTime;
+      totalSeconds = 60;
+      pauseTimer();
+      clearInterval(interval);
+      countDown();
+      resetBtn();
       break;
 
     case "shortBreak":
-      totalSeconds = shortBreak;
+      totalSeconds = 300;
+      pauseTimer();
+      clearInterval(interval);
+      countDown();
+      resetBtn();
       break;
 
     case "longBreak":
-      totalSeconds = longBreak;
-      break;
-
-    default:
-      totalSeconds = pomodoroTime;
+      totalSeconds = 900;
+      pauseTimer();
+      clearInterval(interval);
+      countDown();
+      resetBtn();
       break;
   }
+
+  currentMode = mode;
 }
 
-// ...
-
-// ...
+const removeFocus = () => {
+  buttons.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  count.classList.remove("active");
+};
 
 function countDown() {
   const minutes = Math.floor(totalSeconds / 60);
@@ -42,50 +58,53 @@ function countDown() {
   const min = minutes < 10 ? "0" + minutes : minutes;
 
   countdownDisplay.textContent = `${min} : ${sec}`;
+  count.textContent = pomodoroCount + "/4";
+
   if (totalSeconds > 0) {
     totalSeconds--;
-  } else if (mode === "pomodoroSet") {
-    // Le chronomètre Pomodoro est terminé, passez à la courte pause
+  } else if (currentMode === "pomodoroSet") {
     startTimer("shortBreak");
-    countDown();
-    resetBtn();
-    sB.checked = true;
-    pomodoro.checked = false;
-    clearInterval(interval);
-    // Ajoutez ici une notification pour informer l'utilisateur
-    console.log("Pomodoro terminé !");
-  } else if (mode === "shortBreak") {
-    // La courte pause est terminée, passez au prochain Pomodoro
+    removeFocus();
+    shortBreakButton.classList.add("active");
+    pomodoroCount++;
+
+    if (pomodoroCount === 5) {
+      pomodoroCount = 1;
+      startTimer("longBreak");
+      removeFocus();
+      longBreakButton.classList.add("active");
+    } else {
+      startTimer("shortBreak");
+      removeFocus();
+      shortBreakButton.classList.add("active");
+    }
+  } else if (currentMode === "shortBreak") {
     startTimer("pomodoroSet");
-    countDown();
-    resetBtn();
-    pomodoro.checked = true;
-    sB.checked = false;
-    clearInterval(interval);
-    // Ajoutez ici une notification pour informer l'utilisateur
-    console.log("Courte pause terminée !");
-  } else if (mode === "longBreak") {
-    // La longue pause est terminée, passez au prochain Pomodoro
+    removeFocus();
+    focusButton.classList.add("active");
+    count.classList.add("active");
+  } else if (currentMode === "longBreak") {
     startTimer("pomodoroSet");
-    countDown();
-    resetBtn();
-    mode = "pomodoroSet"; // Mettez à jour le mode
-    clearInterval(interval);
-    // Ajoutez ici une notification pour informer l'utilisateur
-    console.log("Longue pause terminée !");
+    removeFocus();
+    focusButton.classList.add("active");
+    count.classList.add("active");
   }
 }
 
-// ...
-
 function resumeTimer() {
   //todo/?////////////////////////////////////////////////////////////////////////////////////////////////
-  interval = setInterval(countDown, 2);
+  interval = setInterval(countDown, 1);
   isPaused = false;
 }
 function pauseTimer() {
   clearInterval(interval);
   isPaused = true;
+}
+
+function longBreakLaunch() {
+  startTimer("longBreak");
+  removeFocus();
+  longBreakButton.classList.add("active");
 }
 
 function resetBtn() {
@@ -96,7 +115,7 @@ start.addEventListener("click", (e) => {
   e.preventDefault();
   if (isPaused) {
     resumeTimer();
-    checkmark.style.background = "rgb(128, 98, 0)";
+    checkmark.classList.add("active");
     checkmark.textContent = "Pause";
   } else {
     pauseTimer();
@@ -106,36 +125,29 @@ start.addEventListener("click", (e) => {
 
 skip.addEventListener("click", (e) => {
   e.preventDefault();
+  removeFocus();
+  focusButton.classList.add("active");
+  count.classList.add("active");
   startTimer("pomodoroSet");
-  countDown();
-  clearInterval(interval);
-  resetBtn();
-  pomodoro.checked = true;
 });
 
-document.getElementById("pomodoro").addEventListener("click", () => {
+focusButton.addEventListener("click", () => {
   startTimer("pomodoroSet");
-  clearInterval(interval);
-  resetBtn();
-  pauseTimer();
-  countDown();
+  removeFocus();
+  focusButton.classList.add("active");
+  count.classList.add("active");
 });
 
-document.getElementById("sB").addEventListener("click", () => {
+shortBreakButton.addEventListener("click", () => {
   startTimer("shortBreak");
-  clearInterval(interval);
-  resetBtn();
-  pauseTimer();
-  countDown();
+  removeFocus();
+  shortBreakButton.classList.add("active");
 });
 
-document.getElementById("lB").addEventListener("click", () => {
+longBreakButton.addEventListener("click", () => {
   startTimer("longBreak");
-  clearInterval(interval);
-  resetBtn();
-  pauseTimer();
-  countDown();
+  removeFocus();
+  longBreakButton.classList.add("active");
 });
 
 startTimer("pomodoroSet");
-countDown();

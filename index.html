@@ -31,15 +31,12 @@
 
   <div class="pomo_Container">
 
-    <div class="time_selector">
-      <input id="pomodoro" type="radio" checked name="timerMode" value="pomodoro" class="time_selector_btn">
-      <label for="pomodoro">Pomodoro</label>
+    <div class="time_selectors">
 
-      <input type="radio" id="sB" name="timerMode" value="shortBreak" class="time_selector_btn">
-      <label for="sB">Short Break</label>
-
-      <input type="radio" id="lB" name="timerMode" value="longBreak" class="time_selector_btn">
-      <label for="lB">Long Break</label>
+      <button id="focus" class="time_selector_btn focus-btn active">Focus <span id="count"
+          class="active"></span></button>
+      <button id="shortbreak" class="time_selector_btn shortBreak ">Short Break</button>
+      <button id="longbreak" class="time_selector_btn longBreak">Long Break</button>
 
     </div>
 
@@ -56,41 +53,57 @@
 
   </div>
 
-  <span id="currentTask">Figma</span>
+  <section class="task-section">
 
-  <div class="task_manager">
 
-    <div class="task_nav">
-      <p>Tasks</p>
-      <button><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
+    <span id="currentTask">Figma</span>
+
+
+
+  <form class="new_task_maker" action="">
+    <label for="item">What I'll be working on :</label>
+    <input type="text" id="item" placeholder="Review and edit project#1" autocomplete="off" minlength="2">
+    <label for="HowLong">How long I'll be working on it :</label>
+
+    <!-- todo erase exemples HERE -->
+    <input  type="number" id="HowLong" value="1" max="99" min="0"><span id="pHours"> ~5 hours</span>
+    </form>
+
+  
+    <div class="task_manager">
+
+      <div class="task_nav">
+        <p>Tasks</p>
+        <button><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="tasks_list">
+        <!--  -->
+        <div class="task">
+          <input type="checkbox" id="checkTask" checked>
+          <span class="task_Name">Figmater Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique numquam
+            reiciendis odio eius quisquam incidunt facere tempora dolores quod dolore?</span>
+          <span class="How_Many_Pomo">2/2</span>
+          <button class="options"><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+        <!--  -->
+        <div class="add_task task">
+          <p>Add Task</p>
+        </div>
+      </div>
+
+      <div class="pomos_sched">
+        <div class="pomos">
+          <p>Pomos:</p>
+          <p class="bold">5/5</p>
+        </div>
+        <div class="finish_at">
+          <p>Finish At:</p>
+          <p class="bold">17:46 (0h)</p>
+        </div>
+      </div>
     </div>
-
-    <div class="tasks_list">
-      <!--  -->
-      <div class="task">
-        <input type="checkbox" id="checkTask" checked>
-        <span class="task_Name">Figmater Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique numquam
-          reiciendis odio eius quisquam incidunt facere tempora dolores quod dolore?</span>
-        <span class="How_Many_Pomo">2/2</span>
-        <button class="options"><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
-      </div>
-      <!--  -->
-      <div class="add_task task">
-        <p>Add Task</p>
-      </div>
-    </div>
-
-    <div class="pomos_sched">
-      <div class="pomos">
-        <p>Pomos:</p>
-        <p class="bold">5/5</p>
-      </div>
-      <div class="finish_at">
-        <p>Finish At:</p>
-        <p class="bold">17:46 (0h)</p>
-      </div>
-    </div>
-  </div>
+  </section>
 
 
 
