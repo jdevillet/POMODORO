@@ -8,6 +8,7 @@
   color: rgb(241, 241, 241);
   margin: 0;
   scroll-behavior: smooth;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button {
@@ -269,18 +270,117 @@ body .task-section .task_manager .pomos_sched .finish_at {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 35rem;
+  width: 100%;
+  max-width: 38rem;
+  min-width: 15rem;
   height: 20rem;
+  margin: 0 0.4rem;
 }
 .popup .new_task_maker {
-  border: 1px solid green;
-  background: rgb(0, 0, 0);
+  background: rgba(71, 71, 71, 0.48);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.4px);
+  -webkit-backdrop-filter: blur(4.4px);
+  border-radius: 2rem;
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
+.popup .new_task_maker .task-name {
+  display: flex;
+  position: relative;
+  max-width: 100%;
+}
+.popup .new_task_maker .task-name input[type=text] {
+  font-size: 1.2rem;
+  font-style: italic;
+  padding: 5px 10px;
+  width: 100%;
+  outline: none;
+  background: #2e2e2e;
+  letter-spacing: 1px;
+  border-radius: 0.8rem;
+  box-shadow: 3px 3px 2px 0px #2e2e2e;
+  transition: 0.3s ease;
+}
+.popup .new_task_maker .task-name input:focus {
+  background: #5a5a5a;
+  border-radius: 0.8rem;
+}
+.popup .new_task_maker .task-name input::-moz-placeholder {
+  color: #e2e2e2;
+}
+.popup .new_task_maker .task-name input::placeholder {
+  color: #e2e2e2;
+}
+.popup .new_task_maker .task-duration-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 11rem;
+}
+.popup .new_task_maker .task-duration-container input[type=number] {
+  font-size: 1.2rem;
+  font-style: italic;
+  padding: 5px 10px;
+  width: 100%;
+  outline: none;
+  background: #2e2e2e;
+  letter-spacing: 1px;
+  border-radius: 0.8rem;
+  box-shadow: 3px 3px 2px 0px #2e2e2e;
+  transition: 0.3s ease;
+}
+.popup .new_task_maker .task-duration-container input:focus {
+  background: #5a5a5a;
+  border-radius: 0.8rem;
+}
+.popup .new_task_maker .task-duration-container input::-moz-placeholder {
+  color: #e2e2e2;
+}
+.popup .new_task_maker .task-duration-container input::placeholder {
+  color: #e2e2e2;
+}
+.popup .new_task_maker .task-duration-container #pHours {
+  text-wrap: nowrap;
+}
+.popup .new_task_maker .form-settings {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.popup .new_task_maker .add-task-btn {
+  margin: 0 2rem;
+}
+.popup .new_task_maker .add-task-btn #cancelBtn {
+  transition: 100ms ease;
+}
+.popup .new_task_maker .add-task-btn #cancelBtn:hover {
+  transform: skew(-20deg);
+}
+.popup .new_task_maker .add-task-btn input[type=submit] {
+  height: 2rem;
+  width: 6rem;
+  background: rgb(255, 215, 0);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  color: rgb(46, 46, 46);
+  transition: 100ms ease;
+  cursor: pointer;
+}
+.popup .new_task_maker .add-task-btn input[type=submit]:hover {
+  transform: scale(1.1);
+}
+.popup .new_task_maker .add-task-btn input[type=submit]:focus {
+  filter: contrast(50%);
+}
+
 .bold {
   font-weight: 600;
 }
