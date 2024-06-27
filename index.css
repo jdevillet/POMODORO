@@ -8,6 +8,9 @@
   color: rgb(241, 241, 241);
   margin: 0;
   scroll-behavior: smooth;
+}
+
+*:not(i) {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -77,7 +80,10 @@ body {
   flex-direction: column;
   align-items: center;
 }
-body nav {
+body .content {
+  transition: 150ms linear;
+}
+body .content nav {
   max-width: 50rem;
   width: 100%;
   margin: 0 auto;
@@ -85,66 +91,66 @@ body nav {
   justify-content: space-evenly;
   align-items: center;
 }
-body nav h2 {
+body .content nav h2 {
   font-size: 1.2rem;
   margin-right: auto;
 }
-body nav ul {
-  width: 40%;
+body .content nav ul {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
+  justify-content: space-evenly;
 }
-body nav ul li {
+body .content nav ul li {
   cursor: pointer;
   transition: 250ms linear;
   border-radius: 0.2rem;
   padding: 0.1rem;
 }
-body nav ul li:hover {
+body .content nav ul li:hover {
   mix-blend-mode: difference;
   background: rgb(255, 215, 0);
 }
-body #bar {
+body .content #bar {
   margin-top: 0.3rem;
   width: 100%;
   background-color: rgb(128, 98, 0);
 }
-body #barLoading {
+body .content #barLoading {
   width: 1%;
   height: 0.2rem;
   background-color: rgb(255, 215, 0);
 }
-body .pomo_Container {
+body .content .pomo_Container {
   box-shadow: rgb(22, 22, 22) 3px 3px 2px;
   display: flex;
   flex-direction: column;
-  height: 20rem;
-  width: 60%;
-  margin: 2rem auto;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: space-around;
+  height: 20rem;
+  width: 100%;
+  max-width: 30rem;
+  margin: 2rem auto;
   background: rgb(71, 71, 71);
   border-radius: 0.5rem;
 }
-body .pomo_Container .time_selectors .time_selector_btn {
+body .content .pomo_Container .time_selectors .time_selector_btn {
   margin: 0 0.5rem;
   font-size: 1.4rem;
 }
-body .pomo_Container .time_selectors .active {
+body .content .pomo_Container .time_selectors .active {
   background: rgb(255, 215, 0);
   color: rgb(46, 46, 46);
   border-radius: 1.2rem;
   padding: 0.2rem;
   font-weight: bold;
 }
-body .pomo_Container #countdownDisplay {
+body .content .pomo_Container #countdownDisplay {
   font-size: 5rem;
 }
-body .pomo_Container .playButtons {
+body .content .pomo_Container .playButtons {
   display: flex;
 }
-body .pomo_Container .playButtons .container {
+body .content .pomo_Container .playButtons .container {
   position: relative;
   cursor: pointer;
   margin-right: 4rem;
@@ -152,7 +158,7 @@ body .pomo_Container .playButtons .container {
   -moz-user-select: none;
   user-select: none;
 }
-body .pomo_Container .playButtons .container #checkmark {
+body .content .pomo_Container .playButtons .container #checkmark {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -166,24 +172,24 @@ body .pomo_Container .playButtons .container #checkmark {
   border-radius: 2rem;
   color: rgb(46, 46, 46);
 }
-body .pomo_Container .playButtons .container input {
+body .content .pomo_Container .playButtons .container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-body .pomo_Container .playButtons #skip {
+body .content .pomo_Container .playButtons #skip {
   font-size: 2rem;
   width: 1.2rem;
 }
-body .task-section #currentTask {
+body .content .task-section #currentTask {
   background: rgb(71, 71, 71);
   padding: 0 1rem;
   border-radius: 2rem;
   animation: pulse 1000ms infinite;
 }
-body .task-section .new_task_maker {
+body .content .task-section .new_task_maker {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -192,13 +198,13 @@ body .task-section .new_task_maker {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-body .task-section .new_task_maker #HowLong::after {
+body .content .task-section .new_task_maker #HowLong::after {
   content: "Pomos";
   position: absolute;
   top: 0;
   left: 0;
 }
-body .task-section .task_manager {
+body .content .task-section .task_manager {
   margin: 1rem 0;
   width: 30rem;
   display: flex;
@@ -208,13 +214,13 @@ body .task-section .task_manager {
   border-radius: 0.5rem;
   box-shadow: rgb(22, 22, 22) 3px 3px 2px;
 }
-body .task-section .task_manager .task_nav {
+body .content .task-section .task_manager .task_nav {
   display: flex;
   width: 90%;
   justify-content: space-between;
   position: relative;
 }
-body .task-section .task_manager .task_nav::after {
+body .content .task-section .task_manager .task_nav::after {
   position: absolute;
   content: "";
   background: rgb(255, 215, 0);
@@ -224,49 +230,43 @@ body .task-section .task_manager .task_nav::after {
   left: 50%;
   transform: translateX(-50%);
 }
-body .task-section .task_manager .tasks_list {
+body .content .task-section .task_manager .tasks_list {
   width: 95%;
 }
-body .task-section .task_manager .tasks_list .task {
-  background: rgb(46, 46, 46);
-  margin: 0.3rem 0;
-  padding: 1rem;
-  display: flex;
-  border-radius: 0.2rem;
-  align-items: center;
-}
-body .task-section .task_manager .tasks_list .task_Name {
+body .content .task-section .task_manager .tasks_list .task_Name {
   margin: 0 auto;
   padding: 0.5rem;
   text-wrap: pretty;
 }
-body .task-section .task_manager .tasks_list .How_Many_Pomo {
+body .content .task-section .task_manager .tasks_list .How_Many_Pomo {
   margin: auto;
 }
-body .task-section .task_manager .tasks_list .options {
+body .content .task-section .task_manager .tasks_list .options {
   margin-left: 0.5rem;
 }
-body .task-section .task_manager .add_task {
-  justify-content: center;
+body .content .task-section .task_manager .add_task {
   cursor: pointer;
+  max-width: 23rem;
+  justify-content: center;
 }
-body .task-section .task_manager .pomos_sched {
+body .content .task-section .task_manager .pomos_sched {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   margin: 0.4rem 0;
 }
-body .task-section .task_manager .pomos_sched .pomos {
+body .content .task-section .task_manager .pomos_sched .pomos {
   display: flex;
   gap: 0.2rem;
 }
-body .task-section .task_manager .pomos_sched .finish_at {
+body .content .task-section .task_manager .pomos_sched .finish_at {
   display: flex;
   gap: 0.2rem;
 }
 
 .popup {
   position: fixed;
+  z-index: 999;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -287,6 +287,7 @@ body .task-section .task_manager .pomos_sched .finish_at {
   height: 100%;
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
 }
 .popup .new_task_maker .task-name {
   display: flex;
@@ -358,6 +359,7 @@ body .task-section .task_manager .pomos_sched .finish_at {
 }
 .popup .new_task_maker .add-task-btn #cancelBtn {
   transition: 100ms ease;
+  margin-right: 0.8rem;
 }
 .popup .new_task_maker .add-task-btn #cancelBtn:hover {
   transform: skew(-20deg);
@@ -381,6 +383,16 @@ body .task-section .task_manager .pomos_sched .finish_at {
   filter: contrast(50%);
 }
 
+.task {
+  background: rgb(46, 46, 46);
+  margin: 0.3rem 0;
+  padding: 1rem;
+  display: flex;
+  border-radius: 0.2rem;
+  align-items: center;
+  width: 100%;
+}
+
 .bold {
   font-weight: 600;
 }
@@ -399,4 +411,12 @@ body .task-section .task_manager .pomos_sched .finish_at {
 .active {
   background: rgb(255, 215, 0);
   color: rgb(46, 46, 46);
+}
+
+.darken {
+  opacity: 0.3;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=index.css.map */

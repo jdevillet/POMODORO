@@ -1,3 +1,4 @@
+// Timer
 let totalSeconds;
 let interval;
 let isPaused = true;
@@ -12,6 +13,11 @@ let buttons = document.querySelectorAll(".time_selector_btn");
 let start = document.getElementById("start");
 let skip = document.getElementById("skip");
 let pomodoroCount = 1;
+//  todolist
+let addTaskBtn = document.querySelector(".add_task");
+let content = document.querySelector(".content");
+let popup = document.querySelector(".popup");
+const form = document.querySelector(".new_task_maker");
 
 function startTimer(mode) {
   switch (mode) {
@@ -92,7 +98,6 @@ function countDown() {
 }
 
 function resumeTimer() {
-  //todo/?////////////////////////////////////////////////////////////////////////////////////////////////
   interval = setInterval(countDown, 1000);
   isPaused = false;
 }
@@ -151,3 +156,37 @@ longBreakButton.addEventListener("click", () => {
 });
 
 startTimer("pomodoroSet");
+
+//___________
+// ____________________TODOLIST___________________
+//___________
+addTaskBtn.addEventListener("click", () => {
+  content.classList.add("darken");
+  popup.classList.remove("hidden");
+});
+
+cancelBtn.addEventListener("click", () => {
+  content.classList.remove("darken");
+  popup.classList.add("hidden");
+});
+
+//storage part
+function storelist() {
+  window.localStorage.todolist = list.innerHTML;
+}
+
+function getTodos() {
+  if (window.localStorage.todoList) {
+    list.innerHTML = window.localStorage.todoList;
+  }
+}
+window.addEventListener("load", getTodos);
+
+// Add element
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  list.innerHTML += `<li>${item.value}</li>`;
+  storelist();
+});
+// constructor pour tasks
