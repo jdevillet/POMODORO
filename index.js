@@ -17,9 +17,13 @@ let pomodoroCount = 1;
 let addTaskBtn = document.querySelector(".add_task");
 let content = document.querySelector(".content");
 let popup = document.querySelector(".popup");
+let todoTask = document.getElementById("task");
 let form = document.querySelector(".new_task_maker");
 let deleteTask = document.getElementById("deleteBtn");
 
+//___________
+//?____________________TIMER___________________
+//___________
 function startTimer(mode) {
   switch (mode) {
     case "pomodoroSet":
@@ -161,6 +165,7 @@ startTimer("pomodoroSet");
 //___________
 //?____________________TODOLIST___________________
 //___________
+
 addTaskBtn.addEventListener("click", () => {
   content.classList.add("darken");
   popup.classList.remove("hidden");
@@ -186,42 +191,28 @@ function getTodos() {
 window.addEventListener("load", getTodos);
 
 // Add element
-document.addEventListener("DOMContentLoaded", () => {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    list.innerHTML += `
-  <li class="task" id="task">
-            <input type="checkbox" id="checkTask">
-            <span class="task_Name">${item.value}</span>
-            <span class="How_Many_Pomo">0/${HowLong.value}</span>
-            <button id="deleteBtn"><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
-          </li>`;
-    item.value = "";
-    storeList();
-    popup.classList.add("hidden");
-    content.classList.remove("darken");
-  });
+  list.innerHTML += `
+<li class="task" id="task">
+          <div class="checkbox" id="checkTask"></div>
+          <span class="task_Name">${item.value}</span>
+          <span class="How_Many_Pomo">0/${HowLong.value}</span>
+          <button id="deleteBtn"><i class="fa-solid fa-xmark"></i></button>
+        </li>`;
+  item.value = "";
+  storeList();
+  popup.classList.add("hidden");
+  content.classList.remove("darken");
 });
+
 
 //remove element
-window.addEventListener("load", () => {
-  let deleteTask = document.getElementById("deleteTask");
 
-    task.forEach((tsk) => {
-      deleteTask.addEventListener("click", (e) => {
-        // if ((checkTask.checked = true)) {
-        tsk.remove();
-        // } else {
-        // checkTask.checked = true;
-        // }
-        storeList();
-      });
-    });
-});
-// const removeFocus = () => {
-//   buttons.forEach((btn) => {
-//     btn.classList.remove("active");
-//   });
-//   count.classList.remove("active");
-// };
+
+console.log(todoTask);
+
+
+// Check/Uncheck CHECKBOX
+
