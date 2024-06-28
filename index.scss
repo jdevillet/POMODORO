@@ -219,7 +219,8 @@ body {
 
       .task_manager {
         margin: 1rem 0;
-        width: 30rem;
+        width: 100%;
+        max-width: 30rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -246,16 +247,24 @@ body {
         .tasks_list {
           width: 95%;
 
-          .task_Name {
-            margin: 0 auto;
-            padding: 0.5rem;
-            text-wrap: pretty;
-          }
-          .How_Many_Pomo {
-            margin: auto;
-          }
-          .options {
-            margin-left: 0.5rem;
+          .task {
+            display: grid;
+            grid-template-columns: 10% 70% 10% 10%;
+            justify-items: center;
+            .task_Name {
+              padding: 0.5rem;
+              max-width: 100%;
+              overflow-wrap: break-word;
+              text-wrap: pretty;
+            }
+            .How_Many_Pomo {
+              float: right;
+            }
+            #deleteTask {
+              cursor: pointer;
+              float: right;
+              margin-left: 0.5rem;
+            }
           }
         }
         .add_task {
@@ -311,27 +320,27 @@ body {
       display: flex;
       position: relative;
       max-width: 100%;
+    }
 
-      input[type="text"] {
-        font-size: 1.2rem;
-        font-style: italic;
-        padding: 5px 10px;
-        width: 100%;
-        outline: none;
-        background: #2e2e2e;
-        letter-spacing: 1px;
-        border-radius: 0.8rem;
-        box-shadow: 3px 3px 2px 0px #2e2e2e;
-        transition: 0.3s ease;
-      }
+    input[type="text"] {
+      font-size: 1.2rem;
+      font-style: italic;
+      padding: 5px 10px;
+      width: 100%;
+      outline: none;
+      background: #2e2e2e;
+      letter-spacing: 1px;
+      border-radius: 0.8rem;
+      box-shadow: 3px 3px 2px 0px #2e2e2e;
+      transition: 0.3s ease;
+    }
 
-      input:focus {
-        background: #5a5a5a;
-        border-radius: 0.8rem;
-      }
-      input::placeholder {
-        color: #e2e2e2;
-      }
+    input:focus {
+      background: #5a5a5a;
+      border-radius: 0.8rem;
+    }
+    input::placeholder {
+      color: #e2e2e2;
     }
     .task-duration-container {
       display: flex;

@@ -206,7 +206,8 @@ body .content .task-section .new_task_maker #HowLong::after {
 }
 body .content .task-section .task_manager {
   margin: 1rem 0;
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -233,15 +234,23 @@ body .content .task-section .task_manager .task_nav::after {
 body .content .task-section .task_manager .tasks_list {
   width: 95%;
 }
-body .content .task-section .task_manager .tasks_list .task_Name {
-  margin: 0 auto;
+body .content .task-section .task_manager .tasks_list .task {
+  display: grid;
+  grid-template-columns: 10% 70% 10% 10%;
+  justify-items: center;
+}
+body .content .task-section .task_manager .tasks_list .task .task_Name {
   padding: 0.5rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
   text-wrap: pretty;
 }
-body .content .task-section .task_manager .tasks_list .How_Many_Pomo {
-  margin: auto;
+body .content .task-section .task_manager .tasks_list .task .How_Many_Pomo {
+  float: right;
 }
-body .content .task-section .task_manager .tasks_list .options {
+body .content .task-section .task_manager .tasks_list .task #deleteTask {
+  cursor: pointer;
+  float: right;
   margin-left: 0.5rem;
 }
 body .content .task-section .task_manager .add_task {
@@ -294,7 +303,7 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
   position: relative;
   max-width: 100%;
 }
-.popup .new_task_maker .task-name input[type=text] {
+.popup .new_task_maker input[type=text] {
   font-size: 1.2rem;
   font-style: italic;
   padding: 5px 10px;
@@ -306,14 +315,14 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
   box-shadow: 3px 3px 2px 0px #2e2e2e;
   transition: 0.3s ease;
 }
-.popup .new_task_maker .task-name input:focus {
+.popup .new_task_maker input:focus {
   background: #5a5a5a;
   border-radius: 0.8rem;
 }
-.popup .new_task_maker .task-name input::-moz-placeholder {
+.popup .new_task_maker input::-moz-placeholder {
   color: #e2e2e2;
 }
-.popup .new_task_maker .task-name input::placeholder {
+.popup .new_task_maker input::placeholder {
   color: #e2e2e2;
 }
 .popup .new_task_maker .task-duration-container {

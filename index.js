@@ -17,7 +17,8 @@ let pomodoroCount = 1;
 let addTaskBtn = document.querySelector(".add_task");
 let content = document.querySelector(".content");
 let popup = document.querySelector(".popup");
-const form = document.querySelector(".new_task_maker");
+let form = document.querySelector(".new_task_maker");
+let deleteTask = document.getElementById("deleteBtn");
 
 function startTimer(mode) {
   switch (mode) {
@@ -158,7 +159,7 @@ longBreakButton.addEventListener("click", () => {
 startTimer("pomodoroSet");
 
 //___________
-// ____________________TODOLIST___________________
+//?____________________TODOLIST___________________
 //___________
 addTaskBtn.addEventListener("click", () => {
   content.classList.add("darken");
@@ -171,22 +172,56 @@ cancelBtn.addEventListener("click", () => {
 });
 
 //storage part
-function storelist() {
-  window.localStorage.todolist = list.innerHTML;
+function storeList() {
+  window.localStorage.todoList = list.innerHTML;
 }
 
 function getTodos() {
   if (window.localStorage.todoList) {
     list.innerHTML = window.localStorage.todoList;
+  } else {
+    list.innerHTML = ``;
   }
 }
 window.addEventListener("load", getTodos);
 
 // Add element
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  list.innerHTML += `<li>${item.value}</li>`;
-  storelist();
+    list.innerHTML += `
+  <li class="task" id="task">
+            <input type="checkbox" id="checkTask">
+            <span class="task_Name">${item.value}</span>
+            <span class="How_Many_Pomo">0/${HowLong.value}</span>
+            <button id="deleteBtn"><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
+          </li>`;
+    item.value = "";
+    storeList();
+    popup.classList.add("hidden");
+    content.classList.remove("darken");
+  });
 });
-// constructor pour tasks
+
+//remove element
+window.addEventListener("load", () => {
+  let deleteTask = document.getElementById("deleteTask");
+
+    task.forEach((tsk) => {
+      deleteTask.addEventListener("click", (e) => {
+        // if ((checkTask.checked = true)) {
+        tsk.remove();
+        // } else {
+        // checkTask.checked = true;
+        // }
+        storeList();
+      });
+    });
+});
+// const removeFocus = () => {
+//   buttons.forEach((btn) => {
+//     btn.classList.remove("active");
+//   });
+//   count.classList.remove("active");
+// };

@@ -12,91 +12,75 @@
 </head>
 
 <body>
-<section class="content">
+  <section class="content">
 
-  <nav>
-    <h2>PomoDoros Maker</h2>
-    <ul>
-      <li>Report</li>
-      <li>Settings</li>
-      <li>Sign In</li>
-      <li><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></li>
-    </ul>
-  </nav>
-  <!--  -->
-  <!-- barre de suuivi du temps restant -->
-  <div id="bar">
-    <div id="barLoading"></div>
-  </div>
-  <!--  -->
-
-  <div class="pomo_Container">
-
-    <div class="time_selectors">
-
-      <button id="focus" class="time_selector_btn focus-btn active">Focus <span id="count"
-          class="active"></span></button>
-      <button id="shortbreak" class="time_selector_btn shortBreak ">Short Break</button>
-      <button id="longbreak" class="time_selector_btn longBreak">Long Break</button>
-
-    </div>
-
-    <div id="countdownDisplay"></div>
-
-    <form class="playButtons">
-
-      <label class="container">
-        <input id="start" type="checkbox">
-        <span id="checkmark">Start</span>
-      </label>
-      <button id="skip"><i class="fa-solid fa-forward-step"></i></button>
-    </form>
-
-  </div>
-
-  <section class="task-section">
-
-
-    <span id="currentTask">Figma</span>
-
-
-    
-
-    <div class="task_manager">
-
-      <div class="task_nav">
-        <p>Tasks</p>
-        <button><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
-      </div>
-
-      <ul id="list" class="tasks_list">
-        <!--  -->
-        <li class="task">
-          <input type="checkbox" id="checkTask" checked>
-          <span class="task_Name">Figmater Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique numquam
-            reiciendis odio eius quisquam incidunt facere tempora dolores quod dolore?</span>
-          <span class="How_Many_Pomo">2/2</span>
-          <button class="options"><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
-        </li>
-        <!--  -->
+    <nav>
+      <h2>PomoDoros Maker</h2>
+      <ul>
+        <li>Report</li>
+        <li>Settings</li>
+        <li>Sign In</li>
+        <li><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></li>
       </ul>
-      <div class="add_task task">
-        <p>Add Task</p>
+    </nav>
+    <!--  -->
+    <!-- barre de suuivi du temps restant -->
+    <div id="bar">
+      <div id="barLoading"></div>
+    </div>
+    <!--  -->
+
+    <div class="pomo_Container">
+
+      <div class="time_selectors">
+
+        <button id="focus" class="time_selector_btn focus-btn active">Focus <span id="count"
+            class="active"></span></button>
+        <button id="shortbreak" class="time_selector_btn shortBreak ">Short Break</button>
+        <button id="longbreak" class="time_selector_btn longBreak">Long Break</button>
+
       </div>
 
-      <div class="pomos_sched">
-        <div class="pomos">
-          <p>Pomos:</p>
-          <p class="bold">5/5</p>
+      <div id="countdownDisplay"></div>
+
+      <form class="playButtons">
+
+        <label class="container">
+          <input id="start" type="checkbox">
+          <span id="checkmark">Start</span>
+        </label>
+        <button id="skip"><i class="fa-solid fa-forward-step"></i></button>
+      </form>
+
+    </div>
+
+    <section class="task-section">
+      <span id="currentTask">Figma</span>
+
+      <div class="task_manager">
+        <div class="task_nav">
+          <p>Tasks</p>
+          <button><i class="fa-sharp fa-solid fa-ellipsis-vertical"></i></button>
         </div>
-        <div class="finish_at">
-          <p>Finish At:</p>
-          <p class="bold">17:46 (0h)</p>
+
+        <ul id="list" class="tasks_list">j</ul>
+        <div class="add_task task">
+          <p>Add Task</p>
+        </div>
+
+        <div class="pomos_sched">
+          <div class="pomos">
+            <p>Pomos:</p>
+            <p class="bold">5/5</p>
+          </div>
+          <div class="finish_at">
+            <p>Finish At:</p>
+            <p class="bold">17:46 (0h)</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
-</section>
 
   <div class="popup hidden">
 
@@ -109,8 +93,8 @@
       <div class="task-duration form-settings">
         <label for="HowLong">How many pomos I'll be working on it :</label>
         <!-- todo erase exemples HERE -->
-         <div class="task-duration-container">
-           <input type="number" id="HowLong" value="1" max="99" min="0"><span id="pHours"> ~5 hours</span>
+        <div class="task-duration-container">
+          <input type="number" id="HowLong" value="1" max="99" min="0"><span id="pHours"> ~5 hours</span>
         </div>
       </div>
       <!-- <div class="addon">
