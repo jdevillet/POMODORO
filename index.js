@@ -1,10 +1,12 @@
 // Timer
+const progressBar = document.getElementById("myBar");
+let progress;
+let currentTime = 0;
+let intervalBar;
 let totalSeconds;
+let totalTime;
 let interval;
 let isPaused = true;
-let shortBreak = 300;
-let longBreak = 900;
-let pomodoroTime = 1500;
 let focusButton = document.getElementById("focus");
 let shortBreakButton = document.getElementById("shortbreak");
 let longBreakButton = document.getElementById("longbreak");
@@ -28,24 +30,30 @@ function startTimer(mode) {
   switch (mode) {
     case "pomodoroSet":
       totalSeconds = 1500;
+      totalTime = 1500;
       pauseTimer();
       clearInterval(interval);
+      resetProgressBar();
       countDown();
       resetBtn();
       break;
 
     case "shortBreak":
       totalSeconds = 300;
+      totalTime = 300;
       pauseTimer();
       clearInterval(interval);
+      resetProgressBar();
       countDown();
       resetBtn();
       break;
 
     case "longBreak":
       totalSeconds = 900;
+      totalTime = 900;
       pauseTimer();
       clearInterval(interval);
+      resetProgressBar();
       countDown();
       resetBtn();
       break;
@@ -54,6 +62,7 @@ function startTimer(mode) {
   currentMode = mode;
 }
 
+// RemoveFocus highlight the selected mode in yellow : Focus, Short Break, Long Break
 const removeFocus = () => {
   buttons.forEach((btn) => {
     btn.classList.remove("active");
@@ -61,6 +70,7 @@ const removeFocus = () => {
   count.classList.remove("active");
 };
 
+// countDown is the coutdown logic
 function countDown() {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
@@ -70,7 +80,7 @@ function countDown() {
 
   countdownDisplay.textContent = `${min} : ${sec}`;
   count.textContent = pomodoroCount + "/4";
-
+  //Mode switcher when coutdown reach 0
   if (totalSeconds > 0) {
     totalSeconds--;
   } else if (currentMode === "pomodoroSet") {
@@ -101,46 +111,69 @@ function countDown() {
     count.classList.add("active");
   }
 }
-
+//play/pause button + handle progressBar
 function resumeTimer() {
-  interval = setInterval(countDown, 1000);
+  interval = setInterval(countDown, 1);
   isPaused = false;
 }
 function pauseTimer() {
   clearInterval(interval);
   isPaused = true;
+  clearInterval(intervalBar);
+}
+//ProgressBar
+function updateProgressBar() {
+  progress = (currentTime / totalTime) * 100;
+  progressBar.style.width = `${progress}%`;
+  console.log(currentTime);
+  console.log(totalTime);
+}
+function resetProgressBar() {
+  progress = 0;
+  currentTime = 0
+
+  clearInterval(intervalBar);
+  progressBar.style.width = `${progress}%`;
 }
 
-function longBreakLaunch() {
-  startTimer("longBreak");
-  removeFocus();
-  longBreakButton.classList.add("active");
-}
-
+//resetBtn edit the Pause button to Start button
 function resetBtn() {
   checkmark.style.background = "rgb(255, 215, 0)";
   checkmark.textContent = "Start";
 }
+//Start timer button logic
 start.addEventListener("click", (e) => {
   e.preventDefault();
   if (isPaused) {
     resumeTimer();
     checkmark.classList.add("active");
     checkmark.textContent = "Pause";
+    //progressbar
+    clearInterval(intervalBar);
+    intervalBar = setInterval(() => {
+      currentTime++;
+      updateProgressBar();
+      if (currentTime >= totalTime) {
+        clearInterval(intervalBar);
+      }
+    }, 1);
   } else {
     pauseTimer();
     resetBtn();
   }
 });
 
+//Skip timer button (just to the right of the start/pause btn)
 skip.addEventListener("click", (e) => {
   e.preventDefault();
   removeFocus();
   focusButton.classList.add("active");
   count.classList.add("active");
   startTimer("pomodoroSet");
+  resetProgressBar();
 });
 
+// buttons above the Timer display
 focusButton.addEventListener("click", () => {
   startTimer("pomodoroSet");
   removeFocus();
@@ -165,12 +198,12 @@ startTimer("pomodoroSet");
 //___________
 //?____________________TODOLIST___________________
 //___________
-
+//Show the window to create a new task
 addTaskBtn.addEventListener("click", () => {
   content.classList.add("darken");
   popup.classList.remove("hidden");
 });
-
+//Cancel the new task process (close the previous window)
 cancelBtn.addEventListener("click", () => {
   content.classList.remove("darken");
   popup.classList.add("hidden");
@@ -190,7 +223,7 @@ function getTodos() {
 }
 window.addEventListener("load", getTodos);
 
-// Add element
+// Add element/task
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -206,13 +239,14 @@ form.addEventListener("submit", (e) => {
   popup.classList.add("hidden");
   content.classList.remove("darken");
 });
-
+//---------
+//---------------------------
+//Ajoute une nouvelle tache et ouvre la console, tu verras que Todotask est null, je pense que c'est parceque la task se charge trop tard/apres le dom et donc elle n'est pas reconnue(ne fais pas attention a remove element, je le coderai quand j'aurais resolu ce probleme sinon ca sert a rien)
+//---------------------------
+//----------
 
 //remove element
 
-
 console.log(todoTask);
 
-
 // Check/Uncheck CHECKBOX
-

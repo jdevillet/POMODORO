@@ -108,14 +108,14 @@ body {
       }
     }
 
-    #bar {
+    #myProgress {
       margin-top: 0.3rem;
       width: 100%;
       background-color: rgb(128, 98, 0);
     }
 
-    #barLoading {
-      width: 1%;
+    #myBar  {
+      width:0%;
       height: 0.2rem;
       background-color: rgb(255, 215, 0);
     }
@@ -128,10 +128,10 @@ body {
       height: 20rem;
       width: 100%;
       max-width: 30rem;
-      margin: 2rem auto;
+      margin: 1rem auto;
       background: rgb(71, 71, 71);
       border-radius: 0.5rem;
-
+      
       .time_selectors {
         .time_selector_btn {
           margin: 0 0.5rem;
@@ -193,11 +193,16 @@ body {
       }
     }
     .task-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       #currentTask {
         background: rgb(71, 71, 71);
+        text-align: center;
+        max-width: 15rem;
         padding: 0 1rem;
-        border-radius: 2rem;
         animation: pulse 1000ms infinite;
+        border-radius: 2rem;
       }
 
       .new_task_maker {
@@ -423,17 +428,19 @@ body {
 .bold {
   font-weight: 600;
 }
+
 @keyframes pulse {
   0% {
-    transform: scale(1);
+      transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+      transform: scale(1.1);
   }
   100% {
-    transform: scale(1);
+      transform: scale(1);
   }
 }
+
 .active {
   background: rgb(255, 215, 0);
   color: rgb(46, 46, 46);
