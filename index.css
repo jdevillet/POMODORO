@@ -142,7 +142,7 @@ body .content .pomo_Container .playButtons .container #checkmark {
   font-size: 1.4rem;
   font-weight: 700;
   border-radius: 2rem;
-  color: rgb(46, 46, 46);
+  color: rgb(242, 242, 242);
 }
 body .content .pomo_Container .playButtons .container input {
   position: absolute;
@@ -337,9 +337,7 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
 .popup .new_task_maker .add-task-btn #cancelBtn {
   transition: 100ms ease;
   margin-right: 0.8rem;
-}
-.popup .new_task_maker .add-task-btn #cancelBtn:hover {
-  transform: skew(-20deg);
+  cursor: pointer;
 }
 .popup .new_task_maker .add-task-btn input[type=submit] {
   height: 2rem;
@@ -349,9 +347,10 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
   font-size: 1rem;
   font-weight: 600;
   border-radius: 2rem;
-  color: rgb(46, 46, 46);
+  color: rgb(241, 241, 241);
   transition: 100ms ease;
   cursor: pointer;
+  border: none;
 }
 .popup .new_task_maker .add-task-btn input[type=submit]:hover {
   transform: scale(1.1);
@@ -387,7 +386,7 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
 }
 .active {
   background: rgb(201, 24, 24);
-  color: rgb(46, 46, 46);
+  color: rgb(237, 237, 237);
 }
 
 .darken {

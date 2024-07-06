@@ -130,7 +130,7 @@ function updateProgressBar() {
 }
 function resetProgressBar() {
   progress = 0;
-  currentTime = 0
+  currentTime = 0;
 
   clearInterval(intervalBar);
   progressBar.style.width = `${progress}%`;
@@ -207,6 +207,7 @@ addTaskBtn.addEventListener("click", () => {
 cancelBtn.addEventListener("click", () => {
   content.classList.remove("darken");
   popup.classList.add("hidden");
+  HowLong.value = 1;
 });
 
 //storage part
@@ -238,6 +239,7 @@ form.addEventListener("submit", (e) => {
   storeList();
   popup.classList.add("hidden");
   content.classList.remove("darken");
+  HowLong.value = 1;
 });
 //---------
 //---------------------------
@@ -247,6 +249,38 @@ form.addEventListener("submit", (e) => {
 
 //remove element
 
-console.log(todoTask);
+// console.log(todoTask);
 
 // Check/Uncheck CHECKBOX
+function calculatePomodoroDuration() {
+  const pomodoroDurationMinutes = 25;
+  const shortBreakDurationMinutes = 5;
+  const longBreakDurationMinutes = 15;
+
+  const numPomodoros = HowLong.value;
+
+  // Calculer la durée de travail (sans la dernière pause)
+  const workDurationMinutes = numPomodoros * pomodoroDurationMinutes;
+
+  // Calculer la durée des pauses (sans la dernière pause longue)
+  const breakDurationMinutes =
+    (numPomodoros - 1) * shortBreakDurationMinutes +
+    Math.floor((numPomodoros - 1) / 4) * longBreakDurationMinutes;
+
+  // Durée totale (travail + pauses)
+  const totalDurationMinutes = workDurationMinutes + breakDurationMinutes;
+
+  // Convertir en heures et minutes
+  const totalHours = Math.floor(totalDurationMinutes / 60);
+  const remainingMinutes = totalDurationMinutes % 60;
+
+  // Afficher le résultat dans pHours
+  pHours.textContent = `${totalHours}h${remainingMinutes}min`;
+}
+
+calculatePomodoroDuration();
+
+HowLong.addEventListener("input", () => {
+  calculatePomodoroDuration();
+  console.log(HowLong.value);
+});
