@@ -138,7 +138,7 @@ function resetProgressBar() {
 
 //resetBtn edit the Pause button to Start button
 function resetBtn() {
-  checkmark.style.background = "rgb(255, 215, 0)";
+  checkmark.style.background = "rgb(201, 24, 24)";
   checkmark.textContent = "Start";
 }
 //Start timer button logic

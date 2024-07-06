@@ -27,12 +27,6 @@ span {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  background-color: rgb(47, 47, 47);
-}
-
 body .page-max-width {
   max-width: 2000px;
   margin: 0 auto;
@@ -73,64 +67,42 @@ a {
 }
 
 body {
-  background: rgb(48, 48, 48);
+  background: rgb(201, 24, 24);
   max-width: 50rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 body .content {
   transition: 150ms linear;
-}
-body .content nav {
-  max-width: 50rem;
+  max-width: 34rem;
   width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-body .content nav h2 {
-  font-size: 1.2rem;
-  margin-right: auto;
-}
-body .content nav ul {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-body .content nav ul li {
-  cursor: pointer;
-  transition: 250ms linear;
-  border-radius: 0.2rem;
-  padding: 0.1rem;
-}
-body .content nav ul li:hover {
-  mix-blend-mode: difference;
-  background: rgb(255, 215, 0);
 }
 body .content #myProgress {
-  margin-top: 0.3rem;
+  margin-top: 2rem;
   width: 100%;
-  background-color: rgb(128, 98, 0);
+  background-color: rgb(145, 145, 145);
+  border-radius: 0.2rem;
 }
 body .content #myBar {
   width: 0%;
-  height: 0.2rem;
-  background-color: rgb(255, 215, 0);
+  height: 1rem;
+  background-color: rgb(230, 230, 230);
+  border-radius: 0.2rem;
 }
 body .content .pomo_Container {
-  box-shadow: rgb(22, 22, 22) 3px 3px 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 20rem;
   width: 100%;
-  max-width: 30rem;
+  max-width: 32rem;
   margin: 1rem auto;
-  background: rgb(71, 71, 71);
+  background: rgb(38, 39, 47);
   border-radius: 0.5rem;
 }
 body .content .pomo_Container .time_selectors .time_selector_btn {
@@ -138,8 +110,8 @@ body .content .pomo_Container .time_selectors .time_selector_btn {
   font-size: 1.4rem;
 }
 body .content .pomo_Container .time_selectors .active {
-  background: rgb(255, 215, 0);
-  color: rgb(46, 46, 46);
+  background: rgb(201, 24, 24);
+  color: rgb(239, 239, 239);
   border-radius: 1.2rem;
   padding: 0.2rem;
   font-weight: bold;
@@ -165,7 +137,7 @@ body .content .pomo_Container .playButtons .container #checkmark {
   transform: translate(-50%, -50%);
   height: 2rem;
   width: 6rem;
-  background: rgb(255, 215, 0);
+  background: rgb(182, 181, 175);
   text-align: center;
   font-size: 1.4rem;
   font-weight: 700;
@@ -189,7 +161,7 @@ body .content .task-section {
   align-items: center;
 }
 body .content .task-section #currentTask {
-  background: rgb(71, 71, 71);
+  background: rgb(38, 39, 47);
   text-align: center;
   max-width: 15rem;
   padding: 0 1rem;
@@ -218,28 +190,17 @@ body .content .task-section .task_manager {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgb(71, 71, 71);
+  background: rgb(38, 39, 47);
   border-radius: 0.5rem;
-  box-shadow: rgb(22, 22, 22) 3px 3px 2px;
 }
 body .content .task-section .task_manager .task_nav {
   display: flex;
-  width: 90%;
-  justify-content: space-between;
-  position: relative;
-}
-body .content .task-section .task_manager .task_nav::after {
-  position: absolute;
-  content: "";
-  background: rgb(255, 215, 0);
-  top: 1.3rem;
-  width: 70%;
-  height: 0.1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  justify-content: center;
 }
 body .content .task-section .task_manager .tasks_list {
   width: 95%;
+  padding: 0;
 }
 body .content .task-section .task_manager .tasks_list .task {
   display: grid;
@@ -293,7 +254,7 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
   margin: 0 0.4rem;
 }
 .popup .new_task_maker {
-  background: rgba(71, 71, 71, 0.48);
+  background: rgba(38, 39, 47, 0.48);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.4px);
   -webkit-backdrop-filter: blur(4.4px);
@@ -383,7 +344,7 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
 .popup .new_task_maker .add-task-btn input[type=submit] {
   height: 2rem;
   width: 6rem;
-  background: rgb(255, 215, 0);
+  background: rgb(201, 24, 24);
   text-align: center;
   font-size: 1rem;
   font-weight: 600;
@@ -400,9 +361,9 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
 }
 
 .task {
-  background: rgb(46, 46, 46);
+  background: rgb(27, 28, 38);
   margin: 0.3rem 0;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   border-radius: 0.2rem;
   align-items: center;
@@ -425,7 +386,7 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
   }
 }
 .active {
-  background: rgb(255, 215, 0);
+  background: rgb(201, 24, 24);
   color: rgb(46, 46, 46);
 }
 
@@ -448,5 +409,5 @@ body .content .task-section .task_manager .pomos_sched .finish_at {
 }
 
 .checkbox_active {
-  background: rgb(255, 215, 0);
+  background: rgb(201, 24, 24);
 }/*# sourceMappingURL=index.css.map */
